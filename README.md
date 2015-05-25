@@ -1,4 +1,4 @@
-# Benchmark Work Group
+# Benchmarking Work Group
 
 ## Mandate
 
