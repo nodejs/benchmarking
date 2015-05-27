@@ -17,12 +17,12 @@ Its responsibilities are:
 
 AcmeAir is proposed as one of the benchmark to consider: https://github.com/acmeair/acmeair-nodejs
 
-## Current Project Team Mebmers
+## Current Project Team Members
   + Michael Dawson (@mhdawson) Facilitaor 
   + Trevor Norris (@trevnorris)
   + Yang Lei 
   + Ali Sheikh (@ofrobots)
   + Chris Bailey (@seabaylea)
   + Yosuke Furukawa (@yosuke-furukawa)
-  + Dav Glass
+  + Bryan English (@bengl)
   + Yunong Xiao
