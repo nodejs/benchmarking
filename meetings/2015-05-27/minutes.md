@@ -16,13 +16,10 @@
 1. Governance - review boilerplates and agree/disagree to use for this project
   + https://github.com/nodejs/benchmarking/blob/master/CONTRIBUTING-draft.md
   + https://github.com/nodejs/benchmarking/blob/master/GOVERNANCE-draft.md
-
 2. Discuss/Confirm scope we want to tackle
-
 3. Identify initial next steps, starting ideas are:
   + develop list of candidate benchmarks
   + Having Yang take us through ACME air for Node
-
 4. Suggestions from yosuke
 Continuous benchmark: We should take a bench performance on every release continuously.
 
@@ -41,42 +38,26 @@ We discussed accepting boilerplate governance. No objections so agreed
 Things we need do.:
 
 + Define use cases
-
 + Ways to measure
-
 + what to measure 
-
-  throughput, 
-
-  responsiveness, 
-   
-  memory/footprint etc.
-  
-  effect of monitoring probes
-  
-  cpu profiling/flame graphs
-  
-  out of the box versus optimized.
-  
-+ How to measure 
+ + throughput, 
+ + responsiveness, 
+ + memory/footprint etc.
++ How to measure
+ + out of the box versus optimized.
+ + effect of monitoring probes
 + How to we communicate/display results
- 
-  for example .are we fast yet.com.
-
-+ Build list of candidates
-
-  Acme Air
-  
-  ghost blog + create a load driver
-  
-  Tech empower ?
-  
-  Existing micro benchmarks, good for native code (ex buffers, strings)
-        make sure they print and display time for single iteration (how many us to complete),  process monotonic clock (hrtime) -> wall time, might be useful to have cycles used as well.
-        
+ + http://arewefastyet.com/ ?
+ + https://github.com/thlorenz/benchgraph ?
+ + cpu profiling/flame graphs
++ Build list of existing/candidate benchmarks
+ + Acme Air (https://github.com/acmeair/acmeair-nodejs) ?
+ + ghost blog (https://github.com/tryghost/Ghost) + create a load driver ?
+ + TechEmpower (https://www.techempower.com/benchmarks/) ?
++ Existing micro benchmarks, good for native code (ex buffers, strings)
+ + make sure they print and display time for single iteration (how many us to complete),  process monotonic clock (hrtime) -> wall time, might be useful to have cycles used as well.
 + Profiling best practices
-
-  some tools to help with flame graphs - https://gist.github.com/trevnorris/9616784
+ + some tools to help with flame graphs - https://gist.github.com/trevnorris/9616784
 
 ##Actions/next steps:
 
@@ -99,4 +80,3 @@ Michael Dawson to set for 2 weeks from now
 Candidate agenda
 + Overview of Acme Air from Yang Lei (one of the authors)
 + Review of discussion in issues opened
-
