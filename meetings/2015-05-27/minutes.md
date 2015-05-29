@@ -8,7 +8,7 @@
 + Trevor Norris - Node source
 + Michael Dawson - IBM 
 + Yunong Xiao (Netflix)
-+ Yosuke Furukawa - sent info ahead as could not make it
++ Yosuke Furukawa - DeNA
 
 
 ## Agenda
