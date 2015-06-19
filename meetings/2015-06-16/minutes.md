@@ -21,6 +21,7 @@ Yang gave a good presentation on [AcmeAir](https://github.com/acmeair/acmeair-no
 Unfortunately I messed up the recording so we don't have one.  Instead slides are available here:
 
 [slides from presentation](Acmeair_NodeJS_v0.1.pdf)
+
 [mongo demo](Acmeair Mongo on Mesos.mov)
 
 It looks like it is a reasonable fit for one of the Node usecases which is serving rest based apis
