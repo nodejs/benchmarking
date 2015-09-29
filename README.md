@@ -20,9 +20,12 @@ AcmeAir is proposed as one of the benchmark to consider: https://github.com/acme
 ## Current Project Team Members
   + Michael Dawson (@mhdawson) Facilitaor 
   + Trevor Norris (@trevnorris)
-  + Yang Lei 
+  + Yang Lei (@yanglei99)
   + Ali Sheikh (@ofrobots)
   + Chris Bailey (@seabaylea)
   + Yosuke Furukawa (@yosuke-furukawa)
   + Bryan English (@bengl)
-  + Yunong Xiao
+  + Yunong Xiao (@yunong)
+  + Mark Leitch
+  + Surya V Duggirala
+  + David Stewart
