@@ -67,3 +67,7 @@ https://github.com/nodejs/benchmarking/issues/5 - benchmarking use cases - nothi
 General call to contribute/comment on issues 5 and 6 in particular
 
 
+## Actions for next meeting
+
++ Ali to extend invitation to these meeting to somebody on V8 perf side
+
