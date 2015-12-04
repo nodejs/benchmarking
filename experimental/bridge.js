@@ -39,8 +39,8 @@ var server = https.createServer(ssl_options, function(request,response) {
 
   var con = mysql.createConnection({
    host: 'localhost',
-   user: 'bench1',
-   password: 'bench1pwd1',
+   user: 'XXXXXX',
+   password: 'XXXXXXXXXX',
    database: 'benchdb'
   })
 
