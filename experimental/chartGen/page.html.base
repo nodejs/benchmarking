@@ -1,0 +1,50 @@
+<head>
+<script src="lib/Chart.js"></script>
+<script src="lib/Chart.Scatter.js"></script>
+<script>
+
+function createChart() {
+
+  var options = { scaleType: 'date',
+    scaleDateFormat: 'd/m/yy',
+    scaleTimeFormat: ' ',
+    datasetStroke: false,
+    scaleShowLabels: true,
+    scaleLabel: '<%=value%> KB',
+    showScale: true,
+  }
+
+  var data = [];
+  var data2 = [];
+
+  var dataset1 = { 
+    label: 'Footprint(master)',
+    pointColor: 'blue',
+    data: data
+  }
+
+  var dataset2 = { 
+    label: 'Footprint(4.X)',
+    pointColor: 'red',
+    data: data2
+  }
+
+<DATA_ELEMENTS>
+
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myLineChart = new Chart(ctx).Scatter([dataset1, dataset2], options);
+};
+</script>
+
+</head>
+<body onload=createChart();>
+<div id="legend">
+  <table>
+    <tr><td><font color='blue'>Footprint(master)</font></td></tr>
+    <tr><td><font color='red'>Footprint(4.x)</font></td></tr>
+    <td></td>
+  </table>
+</div>
+<canvas id="myChart" width="400" height="400"></canvas>
+</body>
+
