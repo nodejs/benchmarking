@@ -53,7 +53,7 @@ var server = https.createServer(ssl_options, function(request,response) {
     // extract data and add to database
     con.query('INSERT INTO benchresults SET ?', queryData, function(err, res) {
       if (err) {
-        errorFunction(request, response, 'failed to connect to db:' + err)
+        errorFunction(request, response, 'failed to run query:' + err)
         return
       }
  
