@@ -27,5 +27,5 @@ AcmeAir is proposed as one of the benchmark to consider: https://github.com/acme
   + Bryan English (@bengl)
   + Yunong Xiao (@yunong)
   + Mark Leitch
-  + Surya V Duggirala
+  + Surya V Duggirala (@suryadu)
   + David Stewart
