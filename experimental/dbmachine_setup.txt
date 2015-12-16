@@ -1,0 +1,15 @@
+machine dependencies setup
+
+  apt-get install libfontconfig
+  apt-get install mysql-server
+  mysql_secure_install
+
+Database setup with mysql client
+  create database benchdb
+
+  CREATE USER 'xxxxxx'@'localhost' IDENTIFIED BY 'xxxxxxxxxx';
+  GRANT ALL PRIVILEGES ON *.* To 'bench1'@'localhost';
+
+  use benchdb
+  create TABLE benchresults (streamid INT NOT NULL, benchid INT NOT NULL, time INT(11) NOT NULL, value INT NOT NULL);
+
