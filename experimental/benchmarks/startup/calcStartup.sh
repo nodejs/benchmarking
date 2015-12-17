@@ -8,4 +8,4 @@ SCRIPT_DIR=`dirname $SCRIPT_PATH`
 
 time -o total_time -f "%e" sh $SCRIPT_DIR/startNode.sh $ITERATIONS
 TOTAL=`cat total_time`
-cat total_time | awk 'BEGIN{print ('$TOTAL'*1000)/'$ITERATIONS'}'
+cat total_time | awk 'BEGIN{print ('$TOTAL'*1000000)/'$ITERATIONS'}'
