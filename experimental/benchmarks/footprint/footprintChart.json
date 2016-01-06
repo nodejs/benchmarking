@@ -1,0 +1,10 @@
+{
+ "benchid": 1,
+ "name": "Footprint" ,
+ "template": "footprint.html.base",
+ "outputBase" : "footprint",
+ "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
+              {"streamid": 2, "name": "4.x", "color": "red" }
+            ],
+ "enabled": true
+}
