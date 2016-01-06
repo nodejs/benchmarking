@@ -6,7 +6,7 @@ page.open('file://' + system.args[1], function(status) {
   console.log("Status: " + status);
   if(status === "success") {
     setTimeout(function() {
-      page.render('example.png')
+      page.render(system.args[2])
       phantom.exit();
     }, 1000);
   }
