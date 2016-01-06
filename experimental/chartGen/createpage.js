@@ -67,7 +67,7 @@ var generatePage = function(benchConfigFile, nowDone) {
       mainPage = mainPage.replace('<DATA_ELEMENTS>', dataElements.join(''));
       mainPage = mainPage.replace('<DATALIST>', datalist.join(''));
       mainPage = mainPage.replace('<DATASETS>', datasets.join(''));
-      mainPage = mainPage.replace('<DATASETS_LIST>', datasetList.join(''));
+      mainPage = mainPage.replace('<DATASETS_LIST>', datasetList.join(','));
       mainPage = mainPage.replace('<LEGEND>', legend.join(''));
       fs.unlink(chartConfig.outputBase + '.html', function(err) {});
       fs.writeFileSync(chartConfig.outputBase + '.html', mainPage);

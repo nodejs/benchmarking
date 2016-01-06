@@ -21,7 +21,7 @@ function createChart() {
 <DATA_ELEMENTS>
 
   var ctx = document.getElementById("myChart").getContext("2d");
-  var myLineChart = new Chart(ctx).Scatter([dataset1, dataset2], options);
+  var myLineChart = new Chart(ctx).Scatter([<DATASETS_LIST>], options);
 };
 </script>
 
