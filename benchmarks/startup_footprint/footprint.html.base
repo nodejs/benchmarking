@@ -1,0 +1,37 @@
+<head>
+<script src="lib/Chart.js"></script>
+<script src="lib/Chart.Scatter.js"></script>
+<script>
+
+function createChart() {
+
+  var options = { scaleType: 'date',
+    scaleDateFormat: 'd/m/yy',
+    scaleTimeFormat: ' ',
+    datasetStroke: false,
+    scaleShowLabels: true,
+    scaleLabel: '<%=value%> B',
+    showScale: true,
+  }
+
+<DATALIST>
+
+<DATASETS>
+
+<DATA_ELEMENTS>
+
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myLineChart = new Chart(ctx).Scatter([<DATASETS_LIST>], options);
+};
+</script>
+
+</head>
+<body onload=createChart();>
+<div id="legend">
+  <table>
+<LEGEND>
+  </table>
+</div>
+<canvas id="myChart" width="800" height="400"></canvas>
+</body>
+

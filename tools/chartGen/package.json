@@ -1,0 +1,16 @@
+{
+  "name": "chartgen",
+  "version": "1.0.0",
+  "description": "generates charts for Node community benchmarks",
+  "main": "gencharts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "async": "~1.5.1",
+    "mysql": "~2.9.0",
+    "phantomjs": "~1.9.19"
+  },
+  "author": "",
+  "license": "MIT"
+}
