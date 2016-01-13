@@ -66,8 +66,8 @@ run the benchmarks.
 
 (c) is implemented using the scripts as described in the readme 
 here: https://github.com/nodejs/benchmarking/tree/master/tools/chartGen which
-use node and phantom js to generate a chart based on a json configuration file
-and html template.  See the later section on adding benchmarks for more detail
+uses node and phantom js to generate a chart based on a json configuration file
+and html template.  See the later section on adding benchmarks for more detail.
 
 ## Benchmark Results Display
 
