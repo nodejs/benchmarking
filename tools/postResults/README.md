@@ -29,6 +29,8 @@ To install on the machine where the benchmarks will be run by jenkins
 * edit benchmarking/tools/postResults/postit.sh to set the appropriate 
   userid, password and ip for the benchmark data machine (this 
   will be replaced by using certificates at some point)
+* make the script executable by doing
+    chmod +x benchmarking/tools/postResults/postit.sh
 
 The plan is to automate this through an ansible template for the
 benchmark machine 
