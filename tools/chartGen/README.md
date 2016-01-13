@@ -37,6 +37,17 @@ Chart generation will be configured to run using cron on the benchmarking data m
 so adding a new chart should only require adding a new subdirectory in the benchmarks
 directory.
 
+The following is an example of the script that can be run from cron:
+
+<PRE>
+#!/bin/bash
+export BASEDIR=/home/benchmark
+export HOME=$BASEDIR
+export PATH=$BASEDIR/node-v4.2.2-linux-x64/bin:$PATH
+cd $BASEDIR/benchmarking/tools/chartGen/
+sh gencharts.sh
+</PRE>
+
 # Chart configuration
 The json file for a benchmark configures the id in the database for the benchmark (benchid), 
 the name to be used in the chart (name) as well as the streams(which is a column in the database) that should be included on the chart.  The streams are identified by the stream id and then the rest of the configuration defines the name and color for that stream on the chart.
