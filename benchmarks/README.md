@@ -43,7 +43,7 @@ It limits access to the internal ip of the benchmark machine,
 along with a tls connection and a fixed password (this will be updated to use
 certificate based authentication). At this point it accepts the following url
 parameters which mirror the database schema (see 
-https://github.com/nodejs/benchmarking/blob/master/bechmarkdata/dbmachine_setup.txt)
+https://github.com/nodejs/benchmarking/blob/master/benchmarkdata/dbmachine_setup.txt)
 
 * streamid  - release stream (1 for master, 2, for 4.x, etc.)
 * benchid   - id for the benchmark (1 for footprint, etc)
