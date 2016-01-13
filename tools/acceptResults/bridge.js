@@ -1,22 +1,30 @@
 var https = require('https')
-var http = require('http')
-var path = require('path')
 var url = require('url')
 var fs = require('fs')
 var mysql = require('mysql')
 var auth = require('basic-auth')
 
+var listenIP = process.argv[2];
+
+// read in the data required to connect to the database
+var dbConfig = require('./dbconfig.json');
+
+// read in the authentication info
+var authConfig = require('./authconfig.json');
+
+// read in the key and certificate for the server
 ssl_options = {
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem'),
 }
 
-// authenticate requests to the alarm console
-function authenticate(request,response) {
+
+// authenticate requests to the bridge
+function authenticate(request, response) {
    var authInfo = auth(request)
-   if (!authInfo || authInfo.name !== 'yyyyyyyyy' || authInfo.pass !== 'yyyyyyyyy' ) {
+   if (!authInfo || authInfo.name !== authConfig.name || authInfo.pass !== authConfig.pass ) {
       if (response !== undefined) {
-         response.writeHead(401, {'WWW-Authenticate': 'Basic realm="alarm"'});
+         response.writeHead(401, {'WWW-Authenticate': 'Basic realm="' + authConfig.realm + '"'});
          response.end()
       }
       return false
@@ -24,39 +32,36 @@ function authenticate(request,response) {
    return true
 }
 
+
 var errorFunction = function(request, response, error) {
   response.writeHead(404, {'Content-Type': 'text/html'})
   response.end(error)
 }
 
-var server = https.createServer(ssl_options, function(request,response) {
-  if (!authenticate(request, response)) { 
+
+var server = https.createServer(ssl_options, function(request, response) {
+  if (!authenticate(request, response)) {
      return
-  } 
+  }
 
   // get and validate we have appropriate data
   var queryData = url.parse(request.url, true).query
 
-  var con = mysql.createConnection({
-   host: 'localhost',
-   user: 'XXXXXX',
-   password: 'XXXXXXXXXX',
-   database: 'benchdb'
-  })
+  var con = mysql.createConnection(dbConfig);
 
   con.connect(function(err) {
     if (err) {
       errorFunction(request, response, 'failed to connect to db:' + err)
       return
     }
-    
+
     // extract data and add to database
     con.query('INSERT INTO benchresults SET ?', queryData, function(err, res) {
       if (err) {
         errorFunction(request, response, 'failed to run query:' + err)
         return
       }
- 
+
       con.end(function(err) {
         if (err) {
           errorFunction(request, response, 'failed to cleanly close db connection:' + err)
@@ -70,4 +75,4 @@ var server = https.createServer(ssl_options, function(request,response) {
   })
 })
 
-server.listen(3000,'10.52.6.151')
+server.listen(3000, listenIP)
