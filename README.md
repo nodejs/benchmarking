@@ -17,6 +17,9 @@ Its responsibilities are:
 
 AcmeAir is proposed as one of the benchmark to consider: https://github.com/acmeair/acmeair-nodejs
 
+See here for information about the instructure in place so far:
+https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
+
 ## Current Project Team Members
   + Michael Dawson (@mhdawson) Facilitaor 
   + Trevor Norris (@trevnorris)
