@@ -1,0 +1,29 @@
+{
+  "name": "benchmarking",
+  "version": "1.0.0",
+  "description": "## Mandate",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodejs/benchmarking.git"
+  },
+  "keywords": [
+    "benchmarking",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodejs/benchmarking/issues"
+  },
+  "homepage": "https://github.com/nodejs/benchmarking#readme",
+  "dependencies": {
+    "benchmark": "2.0.0"
+  }
+}
