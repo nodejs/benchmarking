@@ -13,7 +13,7 @@ module.exports = {
         // Runs the benchmarks
         suite.
             on('cycle', function (event) {
-                results.push(event.target.hz);
+                results.push(event);
             }).
             on('error', function (e) {
 
@@ -24,7 +24,13 @@ module.exports = {
             on('complete', function() {
 
                 // for CVS style output.
-                console.log([nameOfTest].concat(results).join(','));
+                // TODO: We could include a lot more information.
+                // Perhaps something we should consider is a range instead of
+                // a single number being returned.
+                var sum = results.reduce(function(s, event) {
+                    return s + event.target.hz;
+                });
+                console.log([nameOfTest].concat(sum).join(','));
             }).
             run();
     },

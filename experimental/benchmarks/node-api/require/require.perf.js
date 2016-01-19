@@ -1,7 +1,7 @@
 var runner = require('./../runner');
 
 // If the file being ran is this specific benchmark, then we will run the
-// set of require benchmarks.
+// set of benchmarks.
 if (module === require.main) {
     var count = process.argv[2] || 10;
     runBenchmarks(count);
