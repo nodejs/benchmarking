@@ -5,13 +5,13 @@ module.exports = {
      * runs the benchmarks then updates the console after all the tests have
      * ran.
      */
-    runBenchmarks: function runBenchmarks(nameOfTest, testLoader) {
+    runBenchmarks: function runBenchmarks(nameOfTest, testLoader, onCycle) {
         var suite = Benchmark.Suite(nameOfTest);
         var results = [];
         testLoader(suite);
 
         // Runs the benchmarks
-        suite.
+        var suiteRunner = suite.
             on('cycle', function (event) {
                 results.push(event);
             }).
@@ -23,16 +23,24 @@ module.exports = {
             }).
             on('complete', function() {
 
-                // for CVS style output.
+                // for CSV style output.
                 // TODO: We could include a lot more information.
                 // Perhaps something we should consider is a range instead of
                 // a single number being returned.
                 var sum = results.reduce(function(s, event) {
                     return s + event.target.hz;
-                });
-                console.log([nameOfTest].concat(sum).join(','));
-            }).
-            run();
+                }, 0);
+                var average = sum / results.length;
+                console.log([nameOfTest].concat(average).join(','));
+            });
+
+        // If there is a onCycle function provided, then we will attach the
+        // extra listener.
+        if (onCycle) {
+            suite.on('cycle', onCycle);
+        }
+
+        suiteRunner.run();
     },
 
     /**
