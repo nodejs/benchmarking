@@ -1,10 +1,12 @@
-machine dependencies setup
+1) machine dependencies setup
 
   apt-get install libfontconfig
   apt-get install mysql-server
   mysql_secure_install
 
-Database setup with mysql client
+2) create user benchmark and ensure user's home directory is /home/benchmark
+
+3) Database setup with mysql client
   create database benchdb
 
   CREATE USER 'xxxxxx'@'localhost' IDENTIFIED BY 'xxxxxxxxxx';
@@ -13,3 +15,91 @@ Database setup with mysql client
   use benchdb
   create TABLE benchresults (streamid INT NOT NULL, benchid INT NOT NULL, time INT(11) NOT NULL, value INT NOT NULL);
 
+3) Install the lastest 4.X node version into
+
+/home/benchmark/node-xxxx
+
+where xxxx is related to the version.  For example:  node-v4.2.2-linux-x64
+
+add symlink
+
+ln -s /home/benchmark/node-xxxx /home/benchmark/node
+
+4) in /home/benchmark do
+
+git clone https://github.com/nodejs/benchmarking.git
+chmod +x /home/benchmark/benchmarking/benchmarkdata/dobackup.sh
+chmod +x /home/benchmark/chartcron.sh
+chmod +x /home/benchmark/benchmarking/tools/acceptResults/start_bridge.sh
+
+5) Backup setup
+in /home/benchmark
+create file called creds which contains
+
+  --user=xxxx --password=yyyy
+
+where xxxx is user id created in 3) and yyyy is the password set for that user in 3
+make sure it is only accesible to the user
+chmod 600 /home/benchmark/creds
+
+add the following crontab entry for the user
+
+8 5 * * *  /home/benchmark/benchmarking/benchmarkdata/dobackup.sh
+
+6) Charts setup
+
+Create the file /home/benchmark/benchmarking/tools/chartGen/dbconfig.json which includes
+
+{
+  "host": "localhost",
+  "user": "xxxxxx",
+  "password": "yyyyy",
+  "database": "benchdb"
+}
+
+Where xxxxx and yyyyy are the userid and password set in step 3)
+
+chmod 600 /home/benchmark/benchmarking/tools/chartGen/dbconfig.json
+
+Add the following crontab entry
+
+0 5 * * *  /home/benchmark/benchmarking/tools/chartGen/chartcron.sh
+
+Install the npm dependencies
+
+cd  /home/benchmark/benchmarking/tools/chartGen
+npm install
+
+Install chart.js and related files as documented in:
+/home/benchmark/benchmarking/tools/chartGen/README.md
+
+7) bridge setup
+
+edit
+/home/benchmark/benchmarking/tools/acceptResults/start_bridge.sh
+to see the softlayer internal ip of the benchmark data machine
+
+copy  /home/benchmark/benchmarking/tools/chartGen/dbconfig.json  from step 6)
+to /home/benchmark/benchmarking/tools/acceptResults/dbconfig.json
+chmod 600 /home/benchmark/benchmarking/tools/acceptResults/dbconfig.json
+
+create the required keys/certs for the server
+
+cd /home/benchmark/benchmarking/tools/acceptResults/
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
+
+
+create /home/benchmark/benchmarking/tools/acceptResults/authconfig.json which 
+has the name/password as configured in the benchmark jobs
+
+
+{
+  "name": "xxxxx",
+  "pass": "yyyyy",
+  "realm": "benchmark"
+}
+
+install the npm depenedencies
+
+cd  /home/benchmark/benchmarking/tools/acceptResults
+npm install
