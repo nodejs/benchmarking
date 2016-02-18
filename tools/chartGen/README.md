@@ -43,7 +43,7 @@ The following is an example of the script that can be run from cron:
 #!/bin/bash
 export BASEDIR=/home/benchmark
 export HOME=$BASEDIR
-export PATH=$BASEDIR/node-v4.2.2-linux-x64/bin:$PATH
+export PATH=$BASEDIR/node/bin:$PATH
 cd $BASEDIR/benchmarking/tools/chartGen/
 sh gencharts.sh
 </PRE>
