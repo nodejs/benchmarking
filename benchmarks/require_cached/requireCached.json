@@ -1,5 +1,5 @@
 {
- "benchid": 3,
+ "benchid": 4,
  "name": "Require cached Ops/s" ,
  "template": "require_cached.html.base",
  "outputBase" : "require_cached",
