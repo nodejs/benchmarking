@@ -1,0 +1,11 @@
+{
+ "benchid": 5,
+ "name": "acmeair Ops/s" ,
+ "template": "acmeair_throughput.html.base",
+ "outputBase" : "acmeair_throughput",
+ "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
+              {"streamid": 2, "name": "4.x", "color": "red" },
+              {"streamid": 3, "name": "0.12.x", "color": "green" }
+            ],
+ "enabled": true
+}

@@ -1,0 +1,11 @@
+{
+ "benchid": 8,
+ "name": "acmeair footprint after load" ,
+ "template": "acmeair_postfootprint.html.base",
+ "outputBase" : "acmeair_postfootprint",
+ "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
+              {"streamid": 2, "name": "4.x", "color": "red" },
+              {"streamid": 3, "name": "0.12.x", "color": "green" }
+            ],
+ "enabled": true
+}
