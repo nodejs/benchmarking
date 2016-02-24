@@ -10,7 +10,7 @@ function createChart() {
     scaleTimeFormat: ' ',
     datasetStroke: false,
     scaleShowLabels: true,
-    scaleLabel: '<%=value%> kb',
+    scaleLabel: '<%=value%> <UNITS>',
     showScale: true,
   }
 
@@ -34,4 +34,3 @@ function createChart() {
 </div>
 <canvas id="myChart" width="800" height="400"></canvas>
 </body>
-

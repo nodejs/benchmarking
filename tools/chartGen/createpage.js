@@ -69,6 +69,7 @@ var generatePage = function(benchConfigFile, nowDone) {
       mainPage = mainPage.replace('<DATASETS>', datasets.join(''));
       mainPage = mainPage.replace('<DATASETS_LIST>', datasetList.join(','));
       mainPage = mainPage.replace('<LEGEND>', legend.join(''));
+      mainPage = mainPage.replace('<UNITS>', chartConfig.units);
       fs.unlink(chartConfig.outputBase + '.html', function(err) {});
       fs.writeFileSync(chartConfig.outputBase + '.html', mainPage);
 

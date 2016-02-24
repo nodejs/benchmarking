@@ -1,7 +1,8 @@
 {
  "benchid": 8,
  "name": "acmeair footprint after load" ,
- "template": "acmeair_postfootprint.html.base",
+ "template": "../common/common_template1.html.base",
+ "units": "kb",
  "outputBase" : "acmeair_postfootprint",
  "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
               {"streamid": 2, "name": "4.x", "color": "red" },

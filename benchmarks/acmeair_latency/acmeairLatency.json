@@ -1,7 +1,8 @@
 {
  "benchid": 6,
  "name": "acmeair Latency" ,
- "template": "acmeair_latency.html.base",
+ "template": "../common/common_template1.html.base",
+ "units": "ms",
  "outputBase" : "acmeair_latency",
  "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
               {"streamid": 2, "name": "4.x", "color": "red" },
