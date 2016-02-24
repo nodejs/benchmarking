@@ -67,14 +67,14 @@ function kill_bkg_processes()   # kill processes started in background
 	pids=$(ps -eo pid,pgid | awk -v pid=$$ '$2==pid && $1!=pid {print $1}')  # get list of all child/grandchild pids
 	echo "Killing background processes"
 	echo $pids
-	kill -9 $pids || true  # avoid failing if there is nothing to kill
+	kill -9 $OTHERPID_LIST $pids || true  # avoid failing if there is nothing to kill
 }
 
 function on_exit()
 {
     echo "Caught kill"
     kill_bkg_processes "caught kill"
-    kill -9 $PID_LIST $SPAREPID_LIST
+    kill -9 $PID_LIST $OTHERPID_LIST
     archive_files
     exit 1
 }
@@ -177,10 +177,11 @@ echo -n > $DONEFILE_TEMP
     fi
 done
 )&
+LOOKFORDONE_PID=$!
 # start time clock
 ( sleep $TIMEOUT; echo "TIMEOUT (${TIMEOUT}s)"; echo "fail" >> $DONEFILE_TEMP; ) &
 TIMEOUT_PID=$!
-SPAREPID_LIST="$SPAREPID_LIST $TIMEOUT_PID"
+OTHERPID_LIST="$OTHERPID_LIST $TIMEOUT_PID $LOOKFORDONE_PID"
 
 LOGDIR_PREFIX=$PRODUCT/$DATE/$CUR_DATE
 SUMFILE=$LOGDIR_TEMP/$LOGDIR_PREFIX/$SUMLOG
@@ -255,7 +256,8 @@ PIDS_COMMA=`echo $PIDS|sed 's/ /,/g'`
 #print top output every 5 seconds 47 times = 48*5  - minus 1 measure so we don't end up with a low last number= 240 = length of jmeter run
 SERVER_CPU_COMMAND="top -b -d 5 -n 47 -p $PIDS_COMMA"
 $SERVER_CPU_COMMAND >> server_cpu.txt &
-
+CPU_PID=$!
+OTHERPID_LIST="$OTHERPID_LIST $CPU_PID"
 while ! grep done $DONEFILE_TEMP &>/dev/null ; do
     sleep 3
     # Abort the run if an instance fails or if we time out
