@@ -62,6 +62,7 @@ function kill_bkg_processes()   # kill processes started in background
 {
 	echo "Killing due to : $@"    
 	$MONGODB_COMMAND "stop"
+        pkill node
 	pkill mongod
 	pkill java
 	pids=$(ps -eo pid,pgid | awk -v pid=$$ '$2==pid && $1!=pid {print $1}')  # get list of all child/grandchild pids
@@ -249,9 +250,9 @@ echo -e "$DRIVER_COMMAND"|tee -a $LOGFILE
 ) &
 sleep 2 #sometimes java takes a little longer to get going, so we miss cpu profile
 remove server_cpu.txt
-PIDS="`ps -ef|grep java|awk {'print $2'}`"
-PIDS="$PIDS `ps -ef|grep mongod|awk {'print $2'}`"
-PIDS="$PIDS `ps -ef|grep node|awk {'print $2'}`"
+PIDS="`ps -ef|grep java|grep -v grep|awk {'print $2'}`"
+PIDS="$PIDS `ps -ef|grep mongod|grep -v grep|awk {'print $2'}`"
+PIDS="$PIDS `ps -ef|grep node|grep -v grep|awk {'print $2'}`"
 PIDS_COMMA=`echo $PIDS|sed 's/ /,/g'`
 #print top output every 5 seconds 47 times = 48*5  - minus 1 measure so we don't end up with a low last number= 240 = length of jmeter run
 SERVER_CPU_COMMAND="top -b -d 5 -n 47 -p $PIDS_COMMA"
