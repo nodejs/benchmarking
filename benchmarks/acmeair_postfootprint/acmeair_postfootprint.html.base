@@ -10,7 +10,7 @@ function createChart() {
     scaleTimeFormat: ' ',
     datasetStroke: false,
     scaleShowLabels: true,
-    scaleLabel: '<%=value%> mb',
+    scaleLabel: '<%=value%> kb',
     showScale: true,
   }
 
