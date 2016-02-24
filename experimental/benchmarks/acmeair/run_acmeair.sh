@@ -3,12 +3,13 @@
 
 start=`date +%s`
 #set locations so we don't end up with lots of hard coded bits throughout script
+RESOURCE_DIR=$1
 REL_DIR=$(dirname $0)
 ROOT_DIR=`cd "${REL_DIR}/.."; pwd`
 echo "ROOT_DIR=${ROOT_DIR}"
 SCRIPT_DIR=${ROOT_DIR}/acmeair
-ACMEAIR_DIR=${ROOT_DIR}/acmeair-nodejs
-MONGO_DIR=${ROOT_DIR}/mongo3
+ACMEAIR_DIR=${RESOURCE_DIR}/acmeair-nodejs
+MONGO_DIR=${RESOURCE_DIR}/mongo3
 
 #these may need changing when we find out more about the machine we're running on
 NODE_AFFINITY="numactl --physcpubind=0,4"
@@ -102,7 +103,7 @@ optional DRIVERHOST
 optional NODE_FILE app.js
 optional CLUSTER_MODE false
 optional PORT 4000
-optional DRIVERCMD ${ROOT_DIR}/Jmeter/bin/jmeter
+optional DRIVERCMD ${RESOURCE_DIR}/Jmeter/bin/jmeter
 optional DRIVERNO 25
 ACMEAIR_DRIVER_PATH=${SCRIPT_DIR}/jmeter_scripts
 
