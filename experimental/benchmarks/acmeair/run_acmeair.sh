@@ -64,7 +64,9 @@ function kill_bkg_processes()   # kill processes started in background
 	$MONGODB_COMMAND "stop"
         pkill node
 	pkill mongod
-	pkill java
+        JAVA_PID="`ps -ef|grep java|grep -v grep|grep -v slave|awk {'print $2'}`"
+        kill -9 $JAVA_PID || true
+
 	pids=$(ps -eo pid,pgid | awk -v pid=$$ '$2==pid && $1!=pid {print $1}')  # get list of all child/grandchild pids
 	echo "Killing background processes"
 	echo $pids
@@ -250,7 +252,7 @@ echo -e "$DRIVER_COMMAND"|tee -a $LOGFILE
 ) &
 sleep 2 #sometimes java takes a little longer to get going, so we miss cpu profile
 remove server_cpu.txt
-PIDS="`ps -ef|grep java|grep -v grep|awk {'print $2'}`"
+PIDS="`ps -ef|grep java|grep -v grep|grep -v slave|awk {'print $2'}`"
 PIDS="$PIDS `ps -ef|grep mongod|grep -v grep|awk {'print $2'}`"
 PIDS="$PIDS `ps -ef|grep node|grep -v grep|awk {'print $2'}`"
 PIDS_COMMA=`echo $PIDS|sed 's/ /,/g'`
