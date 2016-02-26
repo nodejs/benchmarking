@@ -1,62 +1,108 @@
-<DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Node.js Benchmarking</title>
 
-<html>
-  <head>
-  </head>
+    <link rel="dns-prefetch" href="http://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="http://fonts.gstatic.com">
 
-  <body bgcolor="lightGrey">
-    <table bgcolor="black">
-      <tr><td>&nbsp;</td></tr>
-      <tr>
-        <td align="center" >
-              <img align="center" width="20%" src="https://nodejs.org/static/images/logos/nodejs-new-white-pantone.png" alt="node.js">
-        </td>
-      </tr>
-      <tr><td>&nbsp;</td></tr>
-    </table>
-    <table>
-      <tr>
-        <td>
-           <H1>Benchmarks</H1>
-           <font size="+2">
-           <p>Welcome to the Node.js benchmarks page.  This page/data is maintained by the <a href="https://github.com/nodejs/benchmarking/blob/master/README.md">benchmarking working group</a>.</p>
+    <meta name="author" content="Node.js Foundation">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-           <P> The Benchmark working group's purpose is to gain consensus for an agreed set of benchmarks that can be used to:
-             <ul>
-               <li>track and evangelize performance gains made between Node releases</li>
-               <li>avoid performance regressions between releases</li>
-             </ul>
-           </p>
+    <link rel="apple-touch-icon" href="https://nodejs.org/static/apple-touch-icon.png">
+    <link rel="icon" sizes="32x32" type="image/png" href="https://nodejs.org/static/favicon.png">
 
-           <p>Benchmarks are curently run daily and the updated results published on this page in order to provide visibility and to
-              encourage contributors to look for possible regressions after their commits go in.</p>
+    <link rel="stylesheet" href="https://nodejs.org/en/styles.css" media="all">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600">
+    <style>
+        #logo { margin-bottom: 1rem; }
+        #graphs {
+            overflow: hidden;
+            clear: both;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        #graphs li {
+            float: left;
+            border: 1px solid #999;
+            margin-left: 1%;
+            margin-bottom: 1rem;
+            padding: 0.25rem;
+            max-width: 48%;
+        }
+        #graphs li:nth-child(odd) {
+            clear: both;
+            margin-left: 0;
+        }
+        #graphs img {
+            max-width: 100%;
+        }
 
-           <p>If you are interested in benchmarks and would like to help out please join the benchmarking workgroup by raising
-              a pull request on the <a href="https://github.com/nodejs/benchmarking">repo</a> asking to be added, or simply feel free to
-              attend the next meeting or raise/comment on issues.</p>
-           </font>
-        </td>
-      </tr>
-    <table>
-    <table border=1>
-      <tr>
-        <td width="50%"><a href="charts/start_stop.png" ><img width="100%" alt="start_stop" src="charts/start_stop.png"</a></td>
-        <td width="50%"><a href="charts/startup_footprint.png" ><img width="100%" alt="startup_footprint" src="charts/startup_footprint.png"</a></td>
-      </tr>
-      <tr>
-        <td width="50%"><a href="charts/require_new.png" ><img width="100%" alt="require_new" src="charts/require_new.png"</a></td>
-        <td width="50%"><a href="charts/require_cached.png" ><img width="100%" alt="require_cached" src="charts/require_cached.png"</a></td>
-      </tr>
-      <tr>
-        <td width="50%"><a href="charts/acmeair_throughput.png" ><img width="100%" alt="acmeair_throughput" src="charts/acmeair_throughput.png"</a></td>
-        <td width="50%"><a href="charts/acmeair_latency.png" ><img width="100%" alt="acmeair_latency" src="charts/acmeair_latency.png"</a></td>
-      </tr>
-      <tr>
-        <td width="50%"><a href="charts/acmeair_prefootprint.png" ><img width="100%" alt="acmeair_prefootprint" src="charts/acmeair_prefootprint.png"</a></td>
-        <td width="50%"><a href="charts/acmeair_postfootprint.png" ><img width="100%" alt="acmeair_postfootprint" src="charts/acmeair_postfootprint.png"</a></td>
-      </tr>
-    </table>
-  </body>
+        @media (max-width:850px) {
+            #graphs li {
+                float: none;
+                margin-left: 0;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container" id="logo">
+            <img src="https://nodejs.org/static/images/logos/nodejs-new-white-pantone.png" alt="node.js">
+        </div>
+    </header>
+
+    <div id="main">
+        <div class="container">
+
+            <h1>Node.js Benchmarks</h1>
+            <p>Welcome to the Node.js benchmarks page.  This page/data is maintained by the <a href="https://github.com/nodejs/benchmarking/blob/master/README.md">benchmarking working group</a>.</p>
+
+            <p>The Benchmark working group's purpose is to gain consensus for an agreed set of benchmarks that can be used to:</p>
+            <ul>
+                <li>track and evangelize performance gains made between Node releases</li>
+                <li>avoid performance regressions between releases</li>
+            </ul>
+
+            <p>Benchmarks are curently run daily and the updated results published on this page in order to provide visibility and to
+               encourage contributors to look for possible regressions after their commits go in.</p>
+
+            <p>If you are interested in benchmarks and would like to help out please join the benchmarking workgroup by raising
+               a pull request on the <a href="https://github.com/nodejs/benchmarking">repo</a> asking to be added, or simply feel free to
+               attend the next meeting or raise/comment on issues.</p>
+
+            <ul id="graphs">
+                <li><a href="charts/start_stop.png"><img alt="" src="charts/start_stop.png"/></a></li>
+                <li><a href="charts/startup_footprint.png"><img alt="" src="charts/startup_footprint.png"/></a></li>
+                <li><a href="charts/require_new.png"><img alt="" src="charts/require_new.png"/></a></li>
+                <li><a href="charts/require_cached.png"><img alt="" src="charts/require_cached.png"/></a></li>
+                <li><a href="charts/acmeair_throughput.png"><img alt="" src="charts/acmeair_throughput.png"/></a></li>
+                <li><a href="charts/acmeair_latency.png"><img alt="" src="charts/acmeair_latency.png"/></a></li>
+                <li><a href="charts/acmeair_prefootprint.png"><img alt="" src="charts/acmeair_prefootprint.png"/></a></li>
+                <li><a href="charts/acmeair_postfootprint.png"><img alt="" src="charts/acmeair_postfootprint.png"/></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="no-margin-top">
+
+        <div class="linuxfoundation-footer">
+            <div class="container">
+                <a class="linuxfoundation-logo" href="http://collabprojects.linuxfoundation.org">Linux Foundation Collaborative Projects</a>
+
+                <p>© 2016 Node.js Foundation. All Rights Reserved. Portions of this site originally © 2016 Joyent. </p>
+                <p>Node.js is a trademark of Joyent, Inc. and is used with its permission. Please review the <a href="https://nodejs.org/static/documents/trademark-policy.pdf">Trademark Guidelines of the Node.js Foundation</a>.</p>
+                <p>Linux Foundation is a registered trademark of The Linux Foundation.</p>
+                <p>Linux is a registered <a href="http://www.linuxfoundation.org/programs/legal/trademark" title="Linux Mark Institute">trademark</a> of Linus Torvalds.</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
 </html>
-
-
