@@ -24,13 +24,13 @@ The general flow is:
 
 * (b) -> accepts post and stores data into database, currently using mysql 
 
-* (c) -> once a day generate cumulative graphs 
+* (c) -> once a day generate cumulative graphs
 
-* (d) -> once a day www site pulls graphs so that current data is displayed (still a todo)
+* (d) -> once a day www site pulls graphs so that current data is displayed
 
 **benchmarch data consumers**
 
-* (e) go to the website link (still to be defined) and can view the benchmark charts 
+* (e) go to the website link https://benchmarking.nodejs.org/ and can view the benchmark charts
 
 
 ## Capturing Benchmark Results
@@ -74,8 +74,7 @@ and html template.  See the later section on adding benchmarks for more detail.
 The website for (e) is built by mirroring the content of 
 https://github.com/nodejs/benchmarking/tree/master/www and then adding
 the lastest charts by pulling them from /home/benchmark/charts the benchmark
-data machine. These two steps are done by the www build infrastructure. **This
-step is still to be put in place**.
+data machine. These two steps are done by the www build infrastructure.
 
 
 # Adding Benchmarks
@@ -100,8 +99,7 @@ To add a benchmark the following will be required:
   is set to enabled the infrastucture will automatically 
   generate the chart and it will be pulled to the www
   site, however you need to update the static pages to 
-  include references to the new chart. **Note that we are 
-  still working on setting up the initial www pages**
+  include references to the new chart.
 
 To add a new benchmark you should create a new subdirectory 
 under https://github.com/nodejs/benchmarking/tree/master/benchmarks
