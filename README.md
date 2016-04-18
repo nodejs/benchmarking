@@ -33,3 +33,4 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
   + Surya V Duggirala (@suryadu)
   + David Stewart
   + Michael Paulson (@michaelbpaulson)
+  + Gareth Ellis (@gareth-ellis)
