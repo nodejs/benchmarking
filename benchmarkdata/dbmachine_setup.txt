@@ -103,3 +103,14 @@ install the npm depenedencies
 
 cd  /home/benchmark/benchmarking/tools/acceptResults
 npm install
+
+8) add the file /home/benchmark/updaterepo.sh which contains:
+
+#!/bin/bash
+cd /home/benchmark/benchmarking
+git pull
+
+and add the execute permission (chmod +e.  Then add the following
+crontab entry
+
+0 4 * * *  /home/benchmark/updaterepo.sh
