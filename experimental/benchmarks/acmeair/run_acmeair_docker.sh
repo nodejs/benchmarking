@@ -3,6 +3,8 @@ NODE_UNDERTEST=/node/node_undertest/bin
 chmod u+x ${NODE_UNDERTEST}/node
 NODE_BASELINE=/node/node_baseline/bin
 chmod u+x ${NODE_BASELINE}/node
+echo "Machine information:"
+numactl --hardware
 echo "NODE Build :"
 ${NODE_UNDERTEST}/node -v
 ${NODE_UNDERTEST}/node -e "console.log(process.versions)"
