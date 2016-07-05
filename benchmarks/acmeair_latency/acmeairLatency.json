@@ -1,6 +1,6 @@
 {
  "benchid": 6,
- "name": "acmeair Latency" ,
+ "name": "acmeair Latency[lower is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "ms",
  "outputBase" : "acmeair_latency",

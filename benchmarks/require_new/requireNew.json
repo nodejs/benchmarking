@@ -1,6 +1,6 @@
 {
  "benchid": 3,
- "name": "Require New Ops/s" ,
+ "name": "Require New Ops/s[higher is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "ops/s",
  "outputBase" : "require_new",

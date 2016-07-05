@@ -1,6 +1,6 @@
 {
  "benchid": 5,
- "name": "acmeair Ops/s" ,
+ "name": "acmeair Ops/s[higher is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "ops/s",
  "outputBase" : "acmeair_throughput",

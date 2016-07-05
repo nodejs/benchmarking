@@ -1,6 +1,6 @@
 {
  "benchid": 4,
- "name": "Require cached Ops/s" ,
+ "name": "Require cached Ops/s[higher is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "ops/s",
  "outputBase" : "require_cached",

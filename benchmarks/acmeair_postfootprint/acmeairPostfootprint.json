@@ -1,6 +1,6 @@
 {
  "benchid": 8,
- "name": "acmeair footprint after load" ,
+ "name": "acmeair footprint after load[lower is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "kb",
  "outputBase" : "acmeair_postfootprint",

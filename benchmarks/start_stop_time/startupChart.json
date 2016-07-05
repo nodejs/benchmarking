@@ -1,6 +1,6 @@
 {
  "benchid": 2,
- "name": "Start + Stop Time" ,
+ "name": "Start + Stop Time[lower is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "us",
  "outputBase" : "start_stop",
