@@ -27,7 +27,6 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
   + Ali Sheikh (@ofrobots)
   + Chris Bailey (@seabaylea)
   + Yosuke Furukawa (@yosuke-furukawa)
-  + Bryan English (@bengl)
   + Yunong Xiao (@yunong)
   + Mark Leitch (@m-leitch)
   + Surya V Duggirala (@suryadu)
