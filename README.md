@@ -15,7 +15,14 @@ Its responsibilities are:
 4. Track/publicize performance between builds/releases
 
 
-AcmeAir is proposed as one of the benchmark to consider: https://github.com/acmeair/acmeair-nodejs
+The path forward is to:
+ * Define the important
+   [use cases](https://github.com/nodejs/benchmarking/blob/master/docs/use_cases.md)
+ * Define the key
+   [runtime attributes](https://github.com/nodejs/benchmarking/blob/master/docs/runtime_attributes.md)
+ * Find/create benchmarks that provide good coverage for the
+   use cases and attributes
+   ([current table](https://github.com/nodejs/benchmarking/blob/master/docs/use_cases.md))
 
 See here for information about the instructure in place so far:
 https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
