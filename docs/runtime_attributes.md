@@ -10,7 +10,7 @@ efforts.
 The following attributes have been identified so far:
 
 * startup/stop time
-* memmory footprint at startup
+* memory footprint at startup
 * memory footprint after load metrics are collected (timing will depend
   on the specific benchmark)
 * Node.js process cpu usage when idle
