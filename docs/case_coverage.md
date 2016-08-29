@@ -20,7 +20,7 @@ startup/stop time | Start + stop Time |
 # Key Attributes
 Key attribute                              |Benchmark with coverage| Notes
 -------------------------------------------|-----------------------|-------
-memmory footprint at startup | Startup footprint |
+memory footprint at startup | Startup footprint |
 memory footprint after load metrics are collected (timing will depend on the specific benchmark) | Acme Air footprint after load |
 Node.js process cpu usage when idle | |
 max throughput as measured through<BR> max http requests served/s | Acme Air Ops/sec |
