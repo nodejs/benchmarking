@@ -1,13 +1,13 @@
-# Current Node.js bencharking infrastructure
+# Current Node.js benchmarking infrastructure
 
-We currently have setup a bare metal benchmark marchine
+We currently have setup a bare metal benchmark machine
 https://ci.nodejs.org/computer/iojs-softlayer-benchmark/ which can 
 be used to get repeatable results.  The machine does not have anything
-else running on it and is didicated hardware opposed to a virtual 
+else running on it and is dedicated hardware opposed to a virtual
 machine.
 
 In addition we have a benchmarks results machine which is used to 
-capture results and generate summary charts from the culmulative
+capture results and generate summary charts from the cumulative
 results.  This machine has not been added to the jenkins CI as
 it does not run jenkins jobs, instead jobs are triggered
 at startup or through cron.
@@ -28,7 +28,7 @@ The general flow is:
 
 * (d) -> once a day www site pulls graphs so that current data is displayed
 
-**benchmarch data consumers**
+**benchmark data consumers**
 
 * (e) go to the website link https://benchmarking.nodejs.org/ and can view the benchmark charts
 
@@ -73,7 +73,7 @@ and html template.  See the later section on adding benchmarks for more detail.
 
 The website for (e) is built by mirroring the content of 
 https://github.com/nodejs/benchmarking/tree/master/www and then adding
-the lastest charts by pulling them from /home/benchmark/charts the benchmark
+the latest charts by pulling them from /home/benchmark/charts the benchmark
 data machine. These two steps are done by the www build infrastructure.
 
 
@@ -96,7 +96,7 @@ To add a benchmark the following will be required:
 * Updates to the www pages in
   https://github.com/nodejs/benchmarking/tree/master/www
   to show the chart. Once the json file in the previous step
-  is set to enabled the infrastucture will automatically 
+  is set to enabled the infrastructure will automatically
   generate the chart and it will be pulled to the www
   site, however you need to update the static pages to 
   include references to the new chart.
@@ -107,7 +107,7 @@ and add the json and page template files to the subdirectory.
 If the benchmark requires any files that will not be part
 of the node distribution this is also the place to put those
 files as the benchmarking repo will be checked out as part of
-running the bencmarks so these files will be available.
+running the benchmarks so these files will be available.
 
 ## Benchmark IDs and Stream IDs
 
@@ -117,7 +117,7 @@ list of these ids is stored in:
 
 https://github.com/nodejs/benchmarking/tree/master/benchmarks/BenchmarkIDs.md
 
-When you add a new becnhmark you must take the next highest
+When you add a new benchmark you must take the next highest
 benchmark id and define it in this file
 
 Data can for the same benchmark will be captured for 
