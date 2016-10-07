@@ -1,5 +1,5 @@
 var EventEmitter = require('events');
-var runner = require('./../runner');
+var runner = require('./../../runner');
 var util = require('util');
 
 // We are going to use a custom event listener.

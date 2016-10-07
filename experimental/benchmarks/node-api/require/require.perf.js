@@ -1,4 +1,4 @@
-var runner = require('./../runner');
+var runner = require('./../../runner');
 
 // If the file being ran is this specific benchmark, then we will run the
 // set of benchmarks.

@@ -1,0 +1,14 @@
+{
+    "benchid": 100,
+    "name": "ES Let and Const Ops/s[higher is better]",
+    "template": "../common/common_template1.html.base",
+    "units": "ops/s",
+    "outputBase" : "es_let_const",
+    "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
+                {"streamid": 2, "name": "4.x", "color": "red" },
+                {"streamid": 3, "name": "0.12.x", "color": "green" },
+                {"streamid": 4, "name": "6.x", "color": "DarkMagenta" }
+                ],
+    "enabled": true
+}
+
