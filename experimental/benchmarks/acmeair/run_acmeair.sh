@@ -287,7 +287,7 @@ done
 # print output
 echo -e "\n##BEGIN $TEST_NAME OUTPUT $(date)\n" 2>&1 | tee -a $SUMFILE
 echo metric throughput $(cat $JMETER_LOGFILE | awk -f ${SCRIPT_DIR}/acmeair_score.awk) 2>&1 | tee -a $SUMFILE
-echo metric latency $(cat $JMETER_LOGFILE | sed 's/ //g' | sed 's/,/ /g' | awk 'BEGIN { COUNT=0; SUM=0 } { SUM=SUM+$10; COUNT=COUNT+1 } END { print SUM/COUNT }') 2>&1 | tee -a $SUMFILE
+echo metric latency $(cat $JMETER_LOGFILE | awk -f ${SCRIPT_DIR}/acmeair_latency.awk) 2>&1 | tee -a $SUMFILE
 mv $JMETER_LOGFILE $LOGDIR_TEMP/$LOGDIR_PREFIX
 export OUT_LIST="$OUT_LIST $LOGDIR_PREFIX/jmeter.log"
 echo "metric pre footprint $pre"
