@@ -1,6 +1,6 @@
 'use strict';
-const fs = require('fs');
-const vm = require('vm');
+var fs = require('fs');
+var vm = require('vm');
 
 global.load = load;
 global.read = read;
