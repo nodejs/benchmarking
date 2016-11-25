@@ -38,41 +38,51 @@ var errorFunction = function(request, response, error) {
   response.end(error)
 }
 
-
 var server = https.createServer(ssl_options, function(request, response) {
   if (!authenticate(request, response)) {
      return
   }
 
-  // get and validate we have appropriate data
-  var queryData = url.parse(request.url, true).query
+  function connect2db() {
+    // get and validate we have appropriate data
+    var queryData = url.parse(request.url, true).query
 
-  var con = mysql.createConnection(dbConfig);
+    var con = mysql.createConnection(dbConfig);
 
-  con.connect(function(err) {
-    if (err) {
-      errorFunction(request, response, 'failed to connect to db:' + err)
-      return
-    }
-
-    // extract data and add to database
-    con.query('INSERT INTO benchresults SET ?', queryData, function(err, res) {
+    con.connect(function(err) {
       if (err) {
-        errorFunction(request, response, 'failed to run query:' + err)
-        return
+        errorFunction(request, response, 'failed to connect to db:' + err)
+        setTimeout(connect2db(),2000);
       }
 
-      con.end(function(err) {
+      // extract data and add to database
+      con.query('INSERT INTO benchresults SET ?', queryData, function(err, res) {
         if (err) {
-          errorFunction(request, response, 'failed to cleanly close db connection:' + err)
+          errorFunction(request, response, 'failed to run query:' + err)
           return
         }
 
-        response.writeHead(200, {'Content-Type': 'text/html'})
-        response.end('ok')
+        con.end(function(err) {
+          if (err) {
+            errorFunction(request, response, 'failed to cleanly close db connection:' + err)
+            return
+          }
+
+          response.writeHead(200, {'Content-Type': 'text/html'})
+          response.end('ok')
+        })
       })
     })
-  })
+    con.on('error', function(err) {
+      console.log('db error', err);
+      if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+        connect2db();
+      } else {
+        throw err;
+      }
+    });
+  }
+  connect2db();
 })
 
 server.listen(3000, listenIP)
