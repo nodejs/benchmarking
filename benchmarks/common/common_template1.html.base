@@ -12,6 +12,7 @@ function createChart() {
     scaleShowLabels: true,
     scaleLabel: '<%=value%> <UNITS>',
     showScale: true,
+    animation: false
   }
 
 <DATALIST>
