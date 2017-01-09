@@ -30,9 +30,7 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
 ## Current Project Team Members
   + Michael Dawson (@mhdawson) Facilitaor 
   + Trevor Norris (@trevnorris)
-  + Yang Lei (@yanglei99)
   + Ali Sheikh (@ofrobots)
-  + Chris Bailey (@seabaylea)
   + Yosuke Furukawa (@yosuke-furukawa)
   + Yunong Xiao (@yunong)
   + Mark Leitch (@m-leitch)
