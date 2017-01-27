@@ -6,7 +6,6 @@
  "outputBase" : "startup_footprint",
  "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
               {"streamid": 2, "name": "4.x", "color": "red" },
-              {"streamid": 3, "name": "0.12.x", "color": "green" },
               {"streamid": 4, "name": "6.x", "color": "DarkMagenta" },
               {"streamid": 5, "name": "7.x", "color": "grey" }
             ],
