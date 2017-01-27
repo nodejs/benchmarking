@@ -38,3 +38,4 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
   + David Stewart(@davidcstewart)
   + Michael Paulson (@michaelbpaulson)
   + Gareth Ellis (@gareth-ellis)
+  + Wayne Andrews (@CurryKitten)
