@@ -50,7 +50,8 @@ var generatePage = function(benchConfigFile, nowDone) {
                       item.color + '",\n    data: data' + item.streamid + '\n  }\n' );
         datasetList.push('dataset' + item.streamid);
         legend.push('    <tr><td><font color="' + item.color + '">' + chartConfig.name +
-                    '(' + item.name + ')</font></td></tr>\n');
+                    '(' + item.name + ')</td><td>&nbsp;</td><td><font color="' + item.color +
+                    '">Latest result: ' + rows[rows.length-1].value + '</font></td></tr>\n');
         dataElements.push(createData(item.streamid, rows));
         callbackDone();
       });
