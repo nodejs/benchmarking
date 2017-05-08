@@ -35,7 +35,7 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
   + Yunong Xiao (@yunong)
   + Mark Leitch (@m-leitch)
   + Surya V Duggirala (@suryadu)
-  + David Stewart(@davidcstewart)
+  + Uttam Pawar (@uttampawar)
   + Michael Paulson (@michaelbpaulson)
   + Gareth Ellis (@gareth-ellis)
   + Wayne Andrews (@CurryKitten)
