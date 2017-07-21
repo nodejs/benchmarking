@@ -1,0 +1,25 @@
+#!/bin/bash
+echo "`date`: Checking for Node processes"
+ps -ef  | grep '/node ' | grep -v 'grep'
+
+NODE_PIDS=`ps -ef | grep '/node ' | grep -v 'grep' | awk '{print $2;}'`
+
+# Try killing them
+if [ -n "$NODE_PIDS" ]; then
+        echo "Killing: $NODE_PIDS"
+        kill $NODE_PIDS
+        echo "Waiting 10s for Node to exit"
+        sleep 10
+fi
+
+# Check to see if all Nodes exited
+NODE_PIDS=`ps -ef  | grep '/node ' | grep -v 'grep' | awk '{print $2;}'`
+
+# If not, try kill -9
+while [ -n "$NODE_PIDS" ]; do
+        echo "Trying kill -9: $NODE_PIDS"
+        kill -9 $NODE_PIDS
+        echo "`date`: Waiting 10s for Node to die"
+        sleep 10
+        NODE_PIDS=`ps -ef | grep '/node ' | grep -v 'grep' | awk '{print $2;}'`
+done
