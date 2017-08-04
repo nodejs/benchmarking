@@ -84,7 +84,7 @@ case $USE_CASE in
 	;;
 esac
 ./configure
-make -j${MACHINE_THREADS}
+make -j${MACHINE_THREADS
 mv out/Release/node ./node-pr
 if [ -n "$FILTER" ]; then
 	FILTER="--filter ${FILTER}"
@@ -94,4 +94,4 @@ if [ -n "$RUNS" ]; then
 fi
 # run benchmark
 ./node-master benchmark/compare.js --old ./node-master --new ./node-pr $FILTER $RUNS -- $CATEGORY | tee output.csv
-cat output.csv | Rscript benchmark/compare.R
+cat output.csv #| Rscript benchmark/compare.R commented out whilst Rscript is missing
