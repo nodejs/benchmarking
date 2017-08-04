@@ -70,8 +70,8 @@ case $USE_CASE in
 esac
 
 # build master
-./configure
-make -j${MACHINE_THREADS}
+./configure  > ../node-master-build.log 
+make -j${MACHINE_THREADS}  >> ../node-master-build.log 
 mv out/Release/node ./node-master
 
 # build pr
@@ -83,8 +83,8 @@ case $USE_CASE in
 	git checkout $TARGET
 	;;
 esac
-./configure
-make -j${MACHINE_THREADS
+./configure > ../node-pr-build.log 
+make -j${MACHINE_THREADS >> ../node-pr-build.log 
 mv out/Release/node ./node-pr
 if [ -n "$FILTER" ]; then
 	FILTER="--filter ${FILTER}"
