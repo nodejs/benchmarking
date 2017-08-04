@@ -84,7 +84,7 @@ case $USE_CASE in
 	;;
 esac
 ./configure > ../node-pr-build.log 
-make -j${MACHINE_THREADS >> ../node-pr-build.log 
+make -j${MACHINE_THREADS} >> ../node-pr-build.log 
 mv out/Release/node ./node-pr
 if [ -n "$FILTER" ]; then
 	FILTER="--filter ${FILTER}"
