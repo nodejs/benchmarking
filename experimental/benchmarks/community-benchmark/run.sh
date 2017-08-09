@@ -94,4 +94,4 @@ if [ -n "$RUNS" ]; then
 fi
 # run benchmark
 ./node-master benchmark/compare.js --old ./node-master --new ./node-pr $FILTER $RUNS -- $CATEGORY | tee output.csv
-cat output.csv #| Rscript benchmark/compare.R commented out whilst Rscript is missing
+cat output.csv | Rscript benchmark/compare.R commented out whilst Rscript is missing
