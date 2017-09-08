@@ -41,3 +41,4 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
   + Wayne Andrews (@CurryKitten)
   + Kyle Farnung (@kfarnung)
   + Kunal Pathak (@kunalspathak)
+  + Benedikt Meurer (@bmeurer)
