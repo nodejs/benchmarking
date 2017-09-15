@@ -8,7 +8,7 @@ page.open('file://' + system.args[1], function(status) {
     setTimeout(function() {
       page.render(system.args[2])
       phantom.exit();
-    }, 1000);
+    }, 3000);
   }
 });
 
