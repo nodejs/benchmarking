@@ -3,7 +3,7 @@
  "name": "node-dc-eis Ops/s[higher is better]" ,
  "template": "../common/common_template1.html.base",
  "units": "ops/s",
- "outputBase" : "acmeair_throughput",
+ "outputBase" : "dceis_throughput",
  "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
               {"streamid": 2, "name": "4.x", "color": "red" },
               {"streamid": 4, "name": "6.x", "color": "DarkMagenta" },
