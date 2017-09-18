@@ -93,5 +93,10 @@ if [ -n "$RUNS" ]; then
 	RUNS="--runs ${RUNS}"
 fi
 # run benchmark
-./node-master benchmark/compare.js --old ./node-master --new ./node-pr $FILTER $RUNS -- $CATEGORY | tee output.csv
-cat output.csv | Rscript benchmark/compare.R commented out whilst Rscript is missing
+fileName=output`date +%d%m%y-%H%M%S`.csv
+echo "Output will be saved to $fileName"
+pwd
+./node-master benchmark/compare.js --old ./node-master --new ./node-pr $FILTER $RUNS -- $CATEGORY | tee $fileName
+
+cat $fileName | Rscript benchmark/compare.R
+mv $fileName $startDir
