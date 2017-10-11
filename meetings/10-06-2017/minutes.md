@@ -20,7 +20,7 @@ Different scenarios of benchmarks:
 VM, core, 
 
 [https://benchmarking.nodejs.org/](https://benchmarking.nodejs.org/) These graphs run nightly
-They helped catch the problem with hash-seed vulnerability that it wasn’t backported to the right branches :) 
+They helped catch the problem with hash-seed vulnerability that it wasn’t backported correctly.
 
 It would be a lot of work to constantly monitor and bisect regressions. Also, noisy data. Who would do that? 
 Java as enterprise has a dedicated team (just like in V8 that is a lot of work) to interpret the data.
