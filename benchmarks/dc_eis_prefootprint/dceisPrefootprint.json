@@ -1,0 +1,13 @@
+{
+ "benchid": 13,
+ "name": "node-dc-eis footprint before load[lower is better]" ,
+ "template": "../common/common_template1.html.base",
+ "units": "kb",
+ "outputBase" : "dceis_prefootprint",
+ "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
+              {"streamid": 2, "name": "4.x", "color": "red" },
+              {"streamid": 4, "name": "6.x", "color": "DarkMagenta" },
+              {"streamid": 6, "name": "8.x", "color": "grey" }
+            ],
+ "enabled": true
+}

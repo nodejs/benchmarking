@@ -12,6 +12,8 @@ SCRIPT_DIR=${ROOT_DIR}/node-dc-eis
 NODEDCEIS_DIR=${WORKLOAD_DIR}/Node-DC-EIS-cluster
 MONGO_DIR=${RESOURCE_DIR}/mongo3
 
+EXIT_STATUS=0
+
 #these may need changing when we find out more about the machine we're running on
 NODE_AFFINITY="numactl --physcpubind=0,4"
 MONGO_AFFINITY="numactl --physcpubind=1,5"
@@ -29,7 +31,7 @@ function mandatory() {
   if [ -z "${!1}" ]; then
     echo "${1} not set"
     usage
-    exit
+    exit 1
   fi
 }
 
@@ -53,9 +55,9 @@ function remove(){
 function stop_node_process() {
     echo -e "\n## STOPPING NODE PROCESS ##"
     case ${PLATFORM} in
-	Linux)
-	    bash ${SCRIPT_DIR}/kill_node_linux
-	    ;;
+      Linux)
+        bash ${SCRIPT_DIR}/kill_node_linux
+        ;;
     esac
 }
 
@@ -89,7 +91,7 @@ function on_exit()
     stop_node_process
     stop_mongodb
     archive_files
-    exit 1
+    exit ${EXIT_STATUS}
 }
 
 function timestamp()
@@ -133,12 +135,13 @@ function check_node_app_status() {
   do
     x=`grep "Mongoose connected to the database" $RESULTSLOG`
     if [ "x${x}" != "x" ]; then
-	break
+      break
     fi
     TOTAL_SLEEP=`expr $TOTAL_SLEEP + $MIN_SLEEP`
     if [ $TOTAL_SLEEP -ge $NODEAPP_START_THRESHOLD ]; then
-	echo "Exceeded nodeapp start time. [default: $NODEAPP_START_THRESHOLD secs]. Exit the run"
-	on_exit
+      echo "Exceeded nodeapp start time. [default: $NODEAPP_START_THRESHOLD secs]. Exit the run"
+      EXIT_STATUS=1
+      on_exit
     fi
     sleep $MIN_SLEEP
   done
@@ -169,19 +172,20 @@ function check_if_client_finished() {
   do
     x=`grep "ImportError" $RESULTSLOG`
     if [ "x${x}" != "x" ]; then
-	echo "Client has missing dependencies"
-        CLIENT_STATUS="failed"
-	on_exit
+      echo "Client has missing dependencies"
+      CLIENT_STATUS="failed"
+      EXIT_STATUS=1
+      on_exit
     fi
     x=`grep "Drivers have finished running" $RESULTSLOG`
     if [ "x${x}" != "x" ]; then
-	break
+      break
     else
-	x=`grep "ERROR: driver failed or killed" $RESULTSLOG`
-	if [ "x${x}" != "x" ]; then
-	    CLIENT_STATUS="failed"
-	    break
-	fi
+      x=`grep "ERROR: driver failed or killed" $RESULTSLOG`
+      if [ "x${x}" != "x" ]; then
+        CLIENT_STATUS="failed"
+        break
+      fi
     fi
     sleep 2
   done
@@ -357,8 +361,9 @@ echo
 let elapsed=$end-$start
 echo "Elapsed time : $elapsed"
 
+echo "Done."
+EXIT_STATUS=0
+
 # Clean up on_exit() function
 on_exit
 
-# Return
-exit 0

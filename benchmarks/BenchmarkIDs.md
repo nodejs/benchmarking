@@ -12,3 +12,5 @@
 * 10 - dc eis latency
 * 11 - dc eis throughput
 * 12 - web tooling benchmark
+* 13 - dc eis pre footprint
+* 14 - dc eis post footprint
