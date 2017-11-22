@@ -4,8 +4,8 @@
 
 The Benchmark working group's purpose is to gain consensus for an agreed set of benchmarks that can be used to:
 
-1. track and evangelize performance gains made between Node releases
-2. avoid performance regressions between releases
+1. Track and evangelize performance gains made between Node releases
+2. Avoid performance regressions between releases
 
 Its responsibilities are:
 
