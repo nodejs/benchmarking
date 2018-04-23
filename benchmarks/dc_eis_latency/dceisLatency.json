@@ -5,7 +5,7 @@
  "units": "ms",
  "outputBase" : "dceis_latency",
  "streams": [ {"streamid": 1, "name": "master", "color": "blue" },
-              {"streamid": 2, "name": "4.x", "color": "red" },
+              {"streamid": 8, "name": "10.x", "color": "red" },
               {"streamid": 4, "name": "6.x", "color": "DarkMagenta" },
               {"streamid": 6, "name": "8.x", "color": "grey" },
               {"streamid": 7, "name": "canary", "color": "DarkGreen"}
