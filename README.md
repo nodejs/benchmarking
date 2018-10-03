@@ -29,17 +29,20 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
 
 ## Current Project Team Members
   + Michael Dawson (@mhdawson) Facilitaor 
+  + Uttam Pawar (@uttampawar)
+  + Michael Paulson (@michaelbpaulson)
+  + Gareth Ellis (@gareth-ellis)
+  + Kunal Pathak (@kunalspathak)
+
+## Emeritus Project Team Members
+
   + Trevor Norris (@trevnorris)
   + Ali Sheikh (@ofrobots)
   + Yosuke Furukawa (@yosuke-furukawa)
   + Yunong Xiao (@yunong)
   + Mark Leitch (@m-leitch)
   + Surya V Duggirala (@suryadu)
-  + Uttam Pawar (@uttampawar)
-  + Michael Paulson (@michaelbpaulson)
-  + Gareth Ellis (@gareth-ellis)
   + Wayne Andrews (@CurryKitten)
   + Kyle Farnung (@kfarnung)
-  + Kunal Pathak (@kunalspathak)
   + Benedikt Meurer (@bmeurer)
   + Sathvik Laxminarayan (@sathvikl)
