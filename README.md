@@ -33,6 +33,7 @@ https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
   + Michael Paulson (@michaelbpaulson)
   + Gareth Ellis (@gareth-ellis)
   + Kunal Pathak (@kunalspathak)
+  + Jamie Davis (@davisjam)
 
 ## Emeritus Project Team Members
 
