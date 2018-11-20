@@ -14,7 +14,6 @@ Its responsibilities are:
 3. Add regular execution of chosen benchmarks to Node builds
 4. Track/publicize performance between builds/releases
 
-
 The path forward is to:
  * Define the important
    [use cases](https://github.com/nodejs/benchmarking/blob/master/docs/use_cases.md)
@@ -26,6 +25,18 @@ The path forward is to:
 
 See here for information about the infrastructure in place so far:
 https://github.com/nodejs/benchmarking/blob/master/benchmarks/README.md
+
+## Logistics
+
+### Semi-monthly Meetings
+
+Meetings of the working group typically occur every third Tuesday as shown on the
+the node.js project [calendar](https://nodejs.org/calendar).
+A few days before each meeting, an [issue](https://github.com/nodejs/benchmarking/issues)
+will be created with the date and time of the meeting.
+The issue will provide schedule logistics as well as
+an agenda, links to meeting minutes, and
+information about how to join as a participant or a viewer.
 
 ## Current Project Team Members
   + Michael Dawson (@mhdawson) Facilitaor 
