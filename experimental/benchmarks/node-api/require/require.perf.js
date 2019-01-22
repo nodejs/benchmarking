@@ -8,11 +8,11 @@ if (module === require.main) {
 }
 
 function runBenchmarks(count) {
-    runner.runBenchmarks('require.new', function(suite) {
-        runner.buildNTests(count, 'require.new', suite, newRequire);
-    });
     runner.runBenchmarks('require.cached', function(suite) {
         runner.buildNTests(count, 'require.cached', suite, cachedRequire);
+    });
+    runner.runBenchmarks('require.new', function(suite) {
+        runner.buildNTests(count, 'require.new', suite, newRequire);
     });
 }
 
