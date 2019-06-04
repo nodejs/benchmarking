@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/nodejs/benchmarking#readme",
   "dependencies": {
-    "benchmark": "2.0.0"
+    "benchmark": "^2.1.4"
   }
 }
