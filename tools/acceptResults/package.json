@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mysql": "~2.9.0",
-    "basic-auth": "~1.0.3"
+    "basic-auth": "~1.0.3",
+    "mysql": "^2.17.1"
   },
   "author": "",
   "license": "MIT"
