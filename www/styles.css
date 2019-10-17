@@ -1,0 +1,181 @@
+/* extracted from nodejs.org styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  font: 400 20px/1.5 "Source Sans Pro", "Open Sans", Roboto, "San Francisco", Helvetica, Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+#main,
+footer {
+  display: flex;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+a,
+a:link,
+a:active {
+  color: #43853d;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #43853d;
+}
+
+strong {
+  font-weight: 600;
+}
+
+p a {
+  padding-right: 2px;
+  padding-left: 2px;
+  margin-right: -2px;
+  margin-left: -2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  border: none;
+}
+
+iframe {
+  border: none;
+}
+
+#main {
+  flex: 1 0 auto;
+}
+
+header,
+footer {
+  flex-shrink: 0;
+}
+
+footer {
+  margin-top: 2em;
+  background-color: #333;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#main .container {
+  padding: 0 20px;
+}
+
+.linuxfoundation-footer {
+  padding: 1em 20px;
+  font-size: 14px;
+  color: #fff;
+  background: #333;
+}
+
+.linuxfoundation-footer p + p {
+  margin-top: 0;
+  margin-bottom: .25em;
+}
+
+.linuxfoundation-logo {
+  margin-top: .2em;
+  min-width: 1px;
+  max-width: 416px;
+}
+
+header {
+  background-color: #333;
+  text-align: center;
+  position: relative;
+}
+
+header > .container {
+  overflow: visible;
+}
+
+#logo {
+  display: block;
+  margin-bottom: 1rem; /* custom for benchmarking */
+}
+
+#logo img {
+  margin: .5em auto 0;
+}
+
+footer a,
+footer a:link,
+footer a:active {
+  color: #ccc;
+}
+
+footer a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+footer.no-margin-top {
+  margin-top: 0;
+}
+
+
+/* specific benchmarking.nodejs.org styles */
+
+#graphs {
+  overflow: hidden;
+  clear: both;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#graphs li {
+  float: left;
+  border: 1px solid #999;
+  margin-left: 1%;
+  margin-bottom: 1rem;
+  padding: .25rem;
+  max-width: 48%;
+}
+
+#graphs li:nth-child(odd) {
+  clear: both;
+  margin-left: 0;
+}
+
+#graphs img {
+  max-width: 100%;
+}
+
+@media (max-width: 850px) {
+  #graphs li {
+    float: none;
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
