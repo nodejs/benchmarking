@@ -52,7 +52,7 @@ var server = https.createServer(ssl_options, function(request, response) {
     con.connect(function(err) {
       if (err) {
         errorFunction(request, response, 'failed to connect to db:' + err)
-        setTimeout(connect2db(),2000);
+        setTimeout(connect2db,2000);
       }
 
       // extract data and add to database
